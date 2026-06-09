@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* THEME */
+
+@theme {
+  /* Backgrounds */
+  --color-background: #0b1326;
+  --color-surface: #0b1326;
+  --color-surface-dim: #131b2e;
+  --color-surface-bright: #1c2438;
+
+  /* Text */
+  --color-on-background: #dae2fd;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #b8c2e0;
+  --color-muted-foreground: #8b96b8;
+
+  /* Primary */
+  --color-primary: #4d8eff;
+  --color-primary-hover: #6ea4ff;
+  --color-primary-container: #005ac2;
+  --color-primary-glow: #3b82f6;
+
+  /* Secondary */
+  --color-secondary: #8ec5ff;
+  --color-secondary-container: #1e3a8a;
+
+  /* Accent */
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #a78bfa;
+  --color-accent-container: #312e81;
+
+  /* Status Colors */
+  --color-success: #22c55e;
+  --color-success-container: #14532d;
+
+  --color-warning: #f59e0b;
+  --color-warning-container: #78350f;
+
+  --color-error: #ef4444;
+  --color-error-container: #7f1d1d;
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(77, 142, 255, 0.35);
+
+  /* Glass */
+  --color-glass: rgba(30, 41, 59, 0.6);
+  --color-glass-highlight: rgba(255, 255, 255, 0.08);
+
+  /* Fonts */
+  --font-headline: "Sora", sans-serif;
+
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 20px;
+  --spacing-section-gap-lg: 120px;
+  --spacing-section-gap-md: 80px;
+  --container-container-max: 1200px;
+}
+
+/* =========================================
+   BASE STYLES
+========================================= */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--color-primary);
+
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   PROFILE IMAGE
+========================================= */
+
+.profile-image {
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   GLASSMORPHISM COMPONENTS
+========================================= */
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.6);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+
+  box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2);
+
+  transform: translateY(-8px) scale(1.01);
+}
+
+.avatar-glow {
+  border: 1px solid rgba(218, 226, 253, 0.35);
+
+  box-shadow:
+    0 0 24px rgba(0, 90, 194, 0.6),
+    0 0 60px rgba(0, 90, 194, 0.25);
+}
+
+.glass-card-no-hover {
+  background: rgba(30, 41, 59, 0.6);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* =========================================
+   BUTTON EFFECTS
+========================================= */
+
+.primary-glow {
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.primary-glow:hover {
+  box-shadow: 0 0 25px rgba(173, 198, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.primary-glow:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* =========================================
+   ANIMATED BACKGROUND
+========================================= */
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+
+  background: #adc6ff;
+  border-radius: 50%;
+
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.2;
+  }
+
+  90% {
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
