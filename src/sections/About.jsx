@@ -9,7 +9,7 @@ export const About = () => {
             About Me
           </h1>
           <div>
-            <p className="mt-6 leading-7 text-on-surface-variant">
+            <p className="leading-7 text-on-surface-variant">
               I'm a junior full-stack developer focused on creating web and
               mobile applications with thoughtful interfaces, reliable
               functionality, and code that is easy to keep improving.

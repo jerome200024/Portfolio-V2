@@ -5,6 +5,7 @@ import { Contact } from "./sections/Contact";
 import { Navbar } from "./layout/Navbar";
 import ParticlesContainer from "./components/ParticlesContainer";
 import { Arsenal } from "./components/Arsenal";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Arsenal />
       <Projects />
       <Contact />
+      <Footer />
     </div>
   );
 }
